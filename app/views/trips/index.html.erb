@@ -1,0 +1,37 @@
+<div class="page-header">
+  <%= link_to new_trip_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Trip
+  <% end %>
+  <h1>Listing trips</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Lattitude</th>
+            <th>Longitude</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Title</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @trips) do |trip| %>
+            <td><%= trip.lattitude %></td>
+            <td><%= trip.longitude %></td>
+            <td><%= trip.name %></td>
+            <td><%= trip.address %></td>
+            <td><%= trip.title %></td>
+            <td><%= link_to 'Show', trip %></td>
+        <td><%= link_to 'Edit', edit_trip_path(trip) %></td>
+        <td><%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
