@@ -60,3 +60,5 @@ gem 'bootstrap-generators'
 gem 'gmaps4rails', '~> 2.0.3'
 # to add 'content_tag_for' method which was removed from Rails 5.0
 gem 'record_tag_helper', '~> 1.0'
+# google's MarkerClusterer.js
+gem 'markerclustererplus-rails'

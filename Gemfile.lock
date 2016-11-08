@@ -82,6 +82,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    markerclustererplus-rails (2.1.2.1)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -193,6 +194,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+  markerclustererplus-rails
   puma (~> 3.0)
   rails (~> 5.0.0)
   rails-erd
