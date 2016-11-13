@@ -112,6 +112,37 @@ code. After we've installed our ruby gems, we should ``` git add .``` and ```
 git commit -m '[commit message]'``` as above to ensure that we track all the
 versions of our code.
 
+# User Authentication with Devise
+We've used a nifty gem called Devise to handle user authentication in our
+application. You can find find the documentation for Devise
+[here](https://github.com/plataformatec/devise).
+
+According to this documentation, all we need to do is run these commands to get up
+and running:
+
+```
+rails generate devise:install
+```
+
+Now open up your app in your text editor again and look for
+```config/environments/development.rb```
+
+Add the following config inside:
+```
+config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+```
+
+Then run this command:
+``` rails generate devise User```
+
+This will create a User model and the corresponding files using the Rails
+framework that gives us options which include user authentication and view pages
+for login and sign up.
+
+Once we've generated a new User, we want to migrate our database to ensure that
+our database is synced with our Rails app.
+
+``` rails db:migrate ```
 
 
 72f2d96 enabled routing in index.html.erb and changed waypts to exclude first and last
