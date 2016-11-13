@@ -1,9 +1,11 @@
 # README
 
 This Repository is part of a workshop given at HackDuke 2016 on how to make Web
-Applications in Ruby on Rails by [Geng Sng](https://github.com/snggeng). The talk will be held on 19 Nov 2016,
-6pm at Hudson Hall 208, and is meant for beginners. Bring yourself and a keen
-sense of learning!
+Applications in Ruby on Rails by [Geng Sng](https://github.com/snggeng). The
+talk will be held at Duke University on 19 Nov 2016, 6pm at Hudson Hall 208, and
+is meant for beginners.
+
+Bring yourself and a keen sense of learning! (and your laptop!)
 
 ## Instructions Before We Begin
 In order to make it easier for all attendees, please do the following before
@@ -29,10 +31,45 @@ In this workshop, we will be creating a simple trip mapper using Ruby on Rails.
 We will be using the Google Maps API and several gems to get our web app up and
 running quickly.
 
-## Gems
+## Initialization
+
+We will be making our app from scratch, so once you've installed Rails and got a
+github account, let's begin!
+
+We begin by initializing our new rails app. So go ahead type ```rails new
+app_name``` in your directory of choice, to create a new rails app. You will see
+that many files are being generated for you, that's Rails doing the
+heavy-lifting for you right there.
+
+Once you've done that, we should move into our new rails app by running the
+following command in terminal: ``` cd app_name```
+
+Then we want to link our link our local repo to our github repo, by doing the
+following:
+* login to Github and create a new repo
+* copy the repo URL
+* ```git remote add origin GIT_URL```
+* ``` git push -u origin master```
+
+Some of you familiar with git may notice that we did not run ```git init``` to
+initialize git in our app. That's because rails already initializes git in any
+new Rails app by default.
+
+Now let's run ``` bundle install ``` to install our dependencies
 
 ```
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+rails new app_name
+cd app_name
+git remote add origin git_url
+git push -u origin master
+bundle install
+```
+
+## Gems
+
+Paste the following into your Gemfile:
+
+```
 # heroku deployment
 gem 'rails_12factor', group: :production
 # user auth
@@ -50,6 +87,14 @@ gem 'record_tag_helper', '~> 1.0'
 # google's MarkerClusterer.js
 gem 'markerclustererplus-rails'
 ```
+
+Run the following in your Terminal:
+```
+git add .
+git commit -m '[any message here]'
+bundle install
+```
+
 * Database creation
 
 * Database initialization
