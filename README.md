@@ -42,7 +42,8 @@ that many files are being generated for you, that's Rails doing the
 heavy-lifting for you right there.
 
 Once you've done that, we should move into our new rails app by running the
-following command in terminal: ``` cd app_name```
+following command in terminal:
+``` cd app_name```
 
 Then we want to link our link our local repo to our github repo, by doing the
 following:
@@ -55,17 +56,21 @@ Some of you familiar with git may notice that we did not run ```git init``` to
 initialize git in our app. That's because rails already initializes git in any
 new Rails app by default.
 
-Now let's run ``` bundle install ``` to install our dependencies
-
+List of Commands so far:
 ```
 rails new app_name
 cd app_name
 git remote add origin git_url
 git push -u origin master
-bundle install
 ```
 
 ## Gems
+
+Next, open up your app in your text editor of choice by running this command:
+``` [text_editor_name] .```
+
+You should see a huge line of folders. Search for a file called ``` Gemfile```
+and double-click on it.
 
 Paste the following into your Gemfile:
 
@@ -87,6 +92,13 @@ gem 'record_tag_helper', '~> 1.0'
 # google's MarkerClusterer.js
 gem 'markerclustererplus-rails'
 ```
+Ruby Gems are cool and small libraries that developers have made to make running
+common features easier. By installing a ruby gem, we gain access to the library
+that was made and the gem becomes a part of the dependencies of your
+application. Gems are one of the biggest reasons why people use Rails, because
+it makes everything so easy and fast!
+
+Now let's run ``` bundle install ``` to install our dependencies
 
 Run the following in your Terminal:
 ```
@@ -95,17 +107,12 @@ git commit -m '[any message here]'
 bundle install
 ```
 
-* Database creation
+It's good practice to stage and commit every time you make a change to your
+code. After we've installed our ruby gems, we should ``` git add .``` and ```
+git commit -m '[commit message]'``` as above to ensure that we track all the
+versions of our code.
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 
 72f2d96 enabled routing in index.html.erb and changed waypts to exclude first and last
 b3244ce fixed bugs for markers | markers now display | need to add waypoints mapping
