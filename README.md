@@ -124,8 +124,10 @@ and running:
 rails generate devise:install
 ```
 
-Now open up your app in your text editor again and look for
-```config/environments/development.rb```
+Now open up your app in your text editor again and look for:
+```
+config/environments/development.rb
+```
 
 Add the following config inside:
 ```
