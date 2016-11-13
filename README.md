@@ -56,12 +56,21 @@ Some of you familiar with git may notice that we did not run ```git init``` to
 initialize git in our app. That's because rails already initializes git in any
 new Rails app by default.
 
+Now let's run ``` rails s ``` to check if we got everything right so far.
+
+Go to ```http://localhost:3000``` to see your app running on localhost. The
+default localhost for Rails is 3000 but you can set it to whatever you want. For
+this workshop we'll be using ```localhost:3000``` .
+
+Congrats! You've made your first Rails application!
+
 List of Commands so far:
 ```
 rails new app_name
 cd app_name
 git remote add origin git_url
 git push -u origin master
+rails s
 ```
 
 ## Gems
@@ -112,7 +121,7 @@ code. After we've installed our ruby gems, we should ``` git add .``` and ```
 git commit -m '[commit message]'``` as above to ensure that we track all the
 versions of our code.
 
-# User Authentication with Devise
+## User Authentication with Devise
 We've used a nifty gem called Devise to handle user authentication in our
 application. You can find find the documentation for Devise
 [here](https://github.com/plataformatec/devise).
@@ -144,8 +153,13 @@ for login and sign up.
 Once we've generated a new User, we want to migrate our database to ensure that
 our database is synced with our Rails app.
 
-``` rails db:migrate ```
+```
+rails db:migrate
+```
 
+
+
+## Creating Trips
 
 72f2d96 enabled routing in index.html.erb and changed waypts to exclude first and last
 b3244ce fixed bugs for markers | markers now display | need to add waypoints mapping
