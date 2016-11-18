@@ -249,11 +249,29 @@ Now refresh your rails app and see the changes!
 You can now sign in, sign out, and sign up. The pages are all created for you
 using ```Devise```. Isn't that handy?
 
+## Updating Routes
+After creating a new model in Rails, you should always updated your routes based
+on how you want your app to work. Routes handle the HTTP requests and responses
+between your frontend and the backend. By default, Rails will generate routes
+for you when you create a new model.
+
+What we want to do now is to set a root page for our app, so localhost will
+always point to it. In ```app/config/routes.rb``` add the following:
+
+```
+root 'trips#index'
+```
+
+This assigns a root page for your app. In this case, we assign the
+index.html.erb of our Trips to the root, so localhost:3000 and eventually your
+website, will show the index.html.erb page for Trips by default.
+
 ## Getting ready to create Maps
 Now that we have the skeleton of the app up, we want to enable it to geocode any
 address that you enter into the app, and mark it on a map, so that you can plan
 trips with your friends.
 
+##
 
 72f2d96 enabled routing in index.html.erb and changed waypts to exclude first and last
 b3244ce fixed bugs for markers | markers now display | need to add waypoints mapping
