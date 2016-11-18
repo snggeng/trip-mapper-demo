@@ -157,9 +157,103 @@ our database is synced with our Rails app.
 rails db:migrate
 ```
 
+## BootStrap Generator
+Now that we have the basics of our web app up, let's generate some bootstrap
+templates to make our app look better. [BootStrap](http://getbootstrap.com/) is a common framework used by
+web developers to make styling websites easier.
 
+We will be using the gem ```bootstrap-generators``` to generate a template for
+each model that we subsequently create.
 
-## Creating Trips
+Run the following command in terminal:
+```
+rails g bootstrap:install
+```
+
+Now when we generate new models, a corresponding template will be generated for
+that model.
+
+## Creating Tripss
+
+For this app, we will only be creating one model: trips. If you wanted to expand
+this app, you could easily create other models and assign relationships to them
+so that they are mapped in your database. We will not be going into how to do
+this in this demo, but if you have questions please feel free to get in touch
+with me.
+
+To create a trip, run this command:
+```
+rails g Trip latitude:float longitude:float name:string address:string
+title:string
+```
+
+You should see Rails generating some files for you. ```g``` is short for
+```generate```. You can use these 2 terms interchangeably in Rails.
+
+Imagine you are creating an excel sheet and you want to specify properties that
+belong to a trip. We are making a column for each of the properties
+```latitude``` ```longitude``` and so on, and specifying the type of data that
+goes into that column via ```:float``` or ```:string```. That's how the Trip
+that we just created is going to look like in our database.
+
+Next, to migrate our database based on our newly generated Trip, run:
+```
+rails db:migrate
+```
+
+Now run ```rails s``` and take a look at your localhost. You should see that
+there's some default styling going on here, even though we did not do any
+styling on our own. That's the gem ```bootstrap-generators``` in action right
+there!
+
+## Adding Sign In / Sign Out Buttons
+Before we move on, let's add some sign in and out buttons to our app:
+
+In ```app/views/layouts/application.html.erb``` add this chunk of code:
+
+```
+<div id="navbar" class="collapse navbar-collapse">
+  <ul class="nav navbar-nav">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+   <!-- Add this part -->
+  <ul class='nav navbar-nav navbar-right'>
+    <% if user_signed_in? %>
+
+    <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete%></li>
+    <% else %>
+    <li><%= link_to 'Sign In', new_user_session_path %></li>
+    <% end %>
+  </ul>
+  <!-- end -->
+</div>
+```
+
+You should see a ```div``` tag with the id ```id="navbar"```. Add in the part
+that is encapsulated by the comments above. We are toggling between Sign In and
+Sign Out buttons when the user is signed in. If you notice the ```<% %>``` those
+are scriptlets in the Embedded Ruby templating language. You should notice that
+our html file has a html.erb extension. Erb basically allows us to enter ruby
+scripts into html, which is more convenient since you can access the functions
+and instance variables created in your controller here. the
+```user_signed_in?``` function is an example of a function that's created by the
+```Devise``` gem that we are accessing. You can't find it in your code because
+Devise generates a hidden file that stores all these methods. If you want to
+find out all the methods Devise creates, refer to its
+[documentation](https://github.com/plataformatec/devise).
+
+Now refresh your rails app and see the changes!
+
+You can now sign in, sign out, and sign up. The pages are all created for you
+using ```Devise```. Isn't that handy?
+
+## Getting ready to create Maps
+Now that we have the skeleton of the app up, we want to enable it to geocode any
+address that you enter into the app, and mark it on a map, so that you can plan
+trips with your friends.
+
 
 72f2d96 enabled routing in index.html.erb and changed waypts to exclude first and last
 b3244ce fixed bugs for markers | markers now display | need to add waypoints mapping
