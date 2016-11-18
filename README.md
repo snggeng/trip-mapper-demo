@@ -173,7 +173,7 @@ rails g bootstrap:install
 Now when we generate new models, a corresponding template will be generated for
 that model.
 
-## Creating Tripss
+## Creating Trips
 
 For this app, we will only be creating one model: trips. If you wanted to expand
 this app, you could easily create other models and assign relationships to them
