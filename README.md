@@ -196,6 +196,28 @@ belong to a trip. We are making a column for each of the properties
 goes into that column via ```:float``` or ```:string```. That's how the Trip
 that we just created is going to look like in our database.
 
+In ```app/models/trip.rb```, add the following:
+```
+geocoded_by :address
+after_validation :geocode
+```
+
+This tells our trip model to geocode the address provided to it when we create a
+new trip.
+
+In ```app/controllers/trips_controller.rb``` add the following:
+```
+def index
+  @trips = Trip.all
+  @hash = Gmaps4rails.build_markers(@trips) do |trip, marker|
+    marker.lat trip.latitude
+    marker.lng trip.longitude
+  end
+end
+```
+
+This creates markers based on the geocoded lat and long values in the map
+
 Next, to migrate our database based on our newly generated Trip, run:
 ```
 rails db:migrate
