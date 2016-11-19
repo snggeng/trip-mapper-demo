@@ -183,7 +183,7 @@ with me.
 
 To create a trip, run this command:
 ```
-rails g Trip latitude:float longitude:float name:string address:string
+rails g scaffold Trip latitude:float longitude:float name:string address:string
 title:string
 ```
 
@@ -376,7 +376,8 @@ You should get your own API key.
 Congratulations! You've got a working rails trip mapper application!
 
 Remember how the Rails framework works:
-* MVC
+*
+[MVC](https://betterexplained.com/articles/intermediate-rails-understanding-models-views-and-controllers/)
 * generating models, views, controllers, etc
 * See it's wonderful
 [documentation](http://edgeguides.rubyonrails.org/getting_started.html)
