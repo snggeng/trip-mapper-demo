@@ -271,24 +271,115 @@ Now that we have the skeleton of the app up, we want to enable it to geocode any
 address that you enter into the app, and mark it on a map, so that you can plan
 trips with your friends.
 
-##
+In order to create a map and create markers on it, we'll be using the following:
 
-72f2d96 enabled routing in index.html.erb and changed waypts to exclude first and last
-b3244ce fixed bugs for markers | markers now display | need to add waypoints mapping
-5600a93 gem i markerclustererplus | edited html.erb
-2be6a97 get googleAPI key and add into trips/index.html.erb | add js inline to index.html.erb to render map
-ad259e8 rails g gmaps4rails:copy_js | pasted map js from gmaps4rails source into views/layouts/trips/index.html
-59470bc added require gmaps/google and underscore in assets/javascripts/application.js | go to gmaps4rails github source
-535322b underscore.js
-59c5f0a added underscore.js in vendor/assets/javascripts get minified js from underscorejs.org
-59dfa6f new migration FixColumnName changed :lattitude to :latitude | models/trip.rb added geocoded_by :address after_validation :geocode
-e161c4e routes.rb | root trips#index
-d1d076e rake db:migrate
-0e351e6 rails g Trip lattitude:float longitude:float name:string address:string title:string
-f0c499f rails g bootstrap:install | generate bootstrap template
-205897a rails db:migrate
-0e675f4 rails generate devise User
-4237344 added config for devise in config/environments/development.rb
-0301095 rails generate devise:install
-e6a74bf initial commit | rails new | bundle install gems: devise, 12_factor,
-geocoder, gmaps4rails, rails-erd, record-tag-helper, bootstrap-generator
+* minified underscore.js
+* gem 'gmaps4rails'
+* google maps API + key
+* gem 'markerclustererplus'
+
+Let's grab the [underscore.js](http://underscorejs.org/underscore-min.js) source
+code and paste it into ```vendor/assets/javascripts``` as ```underscore.js```
+
+Then we need to add the following in ```assets/javascripts/application.js```:
+
+```
+//= require underscore
+//= require gmaps/google
+//= require markerclusterer
+```
+
+We do this so that Rails knows that we are using these 2 libraries in our
+application when it's loading javascript. To see more about gmaps4rails, see
+[here](https://github.com/apneadiving/Google-Maps-for-Rails).
+
+Now we want to generate a copy of the js file that gmpas4rails requires. This
+step is provided in the documentation for gmaps4rails.
+
+```
+rails g gmaps4rails:copy_js
+```
+
+Now let's set a div tag in ```index.html.erb``` for our map:
+
+```
+<div style='height:400px; position: relative; padding-bottom: 75%; height: 0; overflow:hidden'>
+  <div id="map" style='width: 100%; height: 100%; position: absolute; top: 0; left: 0;'></div>
+</div>
+```
+
+Now we want to paste some in-line javascript into our index page to render the
+map.
+
+In ```views/layouts/trips/index.html.erb``` paste:
+
+```
+<script type="text/javascript">
+function initMap() {
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+
+  var directionsDisplay = new google.maps.DirectionsRenderer({ polylineOptions:{strokeColor:"#4a4aff",strokeWeight:5}, suppressMarkers:false });
+  var directionsService = new google.maps.DirectionsService();
+  var map = new google.maps.Map(document.getElementById('map'));
+  directionsDisplay.setMap(map);
+
+function calcRoute(){
+  <% @waypts = []; %>
+  <% @trips.each_with_index do |t, index| %>
+      <% if index == 0
+         next
+       elsif index == (@trips.size - 1)
+         next
+       else
+         @waypts.push({:location => t.address, :stopover => true})
+       end %>
+  <% end %>
+
+
+  var directionsRequest = {
+    origin: <%=raw @hash.first.to_json %>,
+    destination: <%=raw @hash.last.to_json %>,
+    waypoints: <%= raw @waypts.to_json %>,
+    optimizeWaypoints: true,
+    travelMode: google.maps.DirectionsTravelMode.DRIVING,
+    unitSystem: google.maps.UnitSystem.METRIC
+  };
+  directionsService.route(directionsRequest, function(response, status) {
+    if (status == 'OK') {
+      var warnings = document.getElementById("warnings_panel")
+      warnings.innerHTML = "" + response.routes[0].warnings + ""
+      console.log(response.routes[0])
+      directionsDisplay.setDirections(response);
+      console.log(response)
+    } else {
+      window.alert('Directions request failed due to ' + status);
+    }
+  });
+}
+
+calcRoute();
+
+}
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?v=3.25&key=AIzaSyC8Hr3MPNrJIGgDvsmkFH1GqboB6DYgUwg&callback=initMap"></script>
+```
+
+You should get your own API key.
+
+## Completed!
+
+Congratulations! You've got a working rails trip mapper application!
+
+Remember how the Rails framework works:
+* MVC
+* generating models, views, controllers, etc
+* See it's wonderful
+[documentation](http://edgeguides.rubyonrails.org/getting_started.html)
+* Hit me up if you need help on any web application you're building
+
+Now go off and hack!
