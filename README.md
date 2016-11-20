@@ -183,8 +183,7 @@ with me.
 
 To create a trip, run this command:
 ```
-rails g scaffold Trip latitude:float longitude:float name:string address:string
-title:string
+rails g scaffold Trip latitude:float longitude:float name:string address:string title:string
 ```
 
 You should see Rails generating some files for you. ```g``` is short for
