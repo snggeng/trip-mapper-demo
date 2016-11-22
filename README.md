@@ -5,6 +5,10 @@ Applications in Ruby on Rails by [Geng Sng](https://github.com/snggeng). The
 talk will be held at Duke University on 19 Nov 2016, 6pm at Hudson Hall 208, and
 is meant for beginners.
 
+You can find the slides used for the workshop here:
+* [Powerpoint](https://drive.google.com/file/d/0Bw9l6Fsu4RWQZE92Nl9ZaUJzQXM/view?usp=sharing)
+* [Keynote](https://drive.google.com/file/d/0Bw9l6Fsu4RWQeW9oSGhkVDVlTDA/view?usp=sharing)
+
 Bring yourself and a keen sense of learning! (and your laptop!)
 
 ## Instructions Before We Begin
