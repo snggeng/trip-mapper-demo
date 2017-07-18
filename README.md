@@ -41,9 +41,9 @@ We will be making our app from scratch, so once you've installed Rails and got a
 github account, let's begin!
 
 We begin by initializing our new rails app. So go ahead type ```rails new
-app_name``` in your directory of choice, to create a new rails app. You will see
+app_name -d postgresql``` in your directory of choice, to create a new rails app. You will see
 that many files are being generated for you, that's Rails doing the
-heavy-lifting for you right there.
+heavy-lifting for you right there. We add ```-d postgresql``` to configure our app to use the PostgreSQL database instead of the default sqlite3.
 
 Once you've done that, we should move into our new rails app by running the
 following command in terminal:
