@@ -1,4 +1,4 @@
-# README
+# Trip Mapper Demo
 
 This Repository is part of a workshop given at HackDuke 2016 on how to make Web
 Applications in Ruby on Rails by [Geng Sng](https://github.com/snggeng). The
