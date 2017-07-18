@@ -70,7 +70,7 @@ Congrats! You've made your first Rails application!
 
 List of Commands so far:
 ```
-rails new app_name
+rails new app_name -d postgresql
 cd app_name
 git remote add origin git_url
 git push -u origin master
