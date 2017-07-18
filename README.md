@@ -94,6 +94,8 @@ gem 'pg'
 gem 'rails_12factor', group: :production
 # user auth
 gem 'devise'
+# jQuery
+gem 'jquery-rails'
 # relational mapping
 gem "rails-erd"
 # geocoding to get lat and long values
@@ -333,6 +335,12 @@ Now let's set a div tag in ```index.html.erb``` for our map:
 <div style='height:400px; position: relative; padding-bottom: 75%; height: 0; overflow:hidden'>
   <div id="map" style='width: 100%; height: 100%; position: absolute; top: 0; left: 0;'></div>
 </div>
+```
+
+To catch errors, let's include a div at the top of the page:
+
+```
+<div id="warnings_panel"></div>
 ```
 
 Now we want to paste some in-line javascript into our index page to render the
