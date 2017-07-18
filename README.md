@@ -88,6 +88,8 @@ and double-click on it.
 Paste the following into your Gemfile:
 
 ```
+# database: postgresql
+gem 'pg'
 # heroku deployment
 gem 'rails_12factor', group: :production
 # user auth
