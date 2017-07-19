@@ -273,6 +273,13 @@ Devise generates a hidden file that stores all these methods. If you want to
 find out all the methods Devise creates, refer to its
 [documentation](https://github.com/plataformatec/devise).
 
+Then we need to add the following in ```assets/javascripts/application.js```:
+
+```
+//= require jquery
+//= require jquery_ujs
+```
+
 Now refresh your rails app and see the changes!
 
 You can now sign in, sign out, and sign up. The pages are all created for you
