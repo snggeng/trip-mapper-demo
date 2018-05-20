@@ -1,0 +1,19 @@
+current directory: /Users/snggeng/Dev/rails/demo_app/vendor/cache/ruby/2.4.0/gems/byebug-10.0.2/ext/byebug
+/Users/snggeng/.rbenv/versions/2.4.0/bin/ruby -r ./siteconf20180519-30862-rci90q.rb extconf.rb
+creating Makefile
+
+current directory: /Users/snggeng/Dev/rails/demo_app/vendor/cache/ruby/2.4.0/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/snggeng/Dev/rails/demo_app/vendor/cache/ruby/2.4.0/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/snggeng/Dev/rails/demo_app/vendor/cache/ruby/2.4.0/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR=" install
+/usr/local/bin/ginstall -c -m 0755 byebug.bundle ./.gem.20180519-30862-1au0vfs/byebug
