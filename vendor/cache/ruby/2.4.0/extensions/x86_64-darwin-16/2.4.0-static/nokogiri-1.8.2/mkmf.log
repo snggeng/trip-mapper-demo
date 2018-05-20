@@ -1,0 +1,115 @@
+"clang -o conftest -I/Users/snggeng/.rbenv/versions/2.4.0/include/ruby-2.4.0/x86_64-darwin16 -I/Users/snggeng/.rbenv/versions/2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/snggeng/.rbenv/versions/2.4.0/include/ruby-2.4.0 -I. -I/Users/snggeng/.rbenv/versions/2.4.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c  -L. -L/Users/snggeng/.rbenv/versions/2.4.0/lib -L. -L/Users/snggeng/.rbenv/versions/2.4.0/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -lgmp -ldl -lobjc  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"clang -I/Users/snggeng/.rbenv/versions/2.4.0/include/ruby-2.4.0/x86_64-darwin16 -I/Users/snggeng/.rbenv/versions/2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/snggeng/.rbenv/versions/2.4.0/include/ruby-2.4.0 -I. -I/Users/snggeng/.rbenv/versions/2.4.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe    -Werror -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"clang -I/Users/snggeng/.rbenv/versions/2.4.0/include/ruby-2.4.0/x86_64-darwin16 -I/Users/snggeng/.rbenv/versions/2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/snggeng/.rbenv/versions/2.4.0/include/ruby-2.4.0 -I. -I/Users/snggeng/.rbenv/versions/2.4.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe  -Wno-error=unused-command-line-argument-hard-error-in-future   -Werror -c conftest.c"
+error: unknown warning option '-Werror=unused-command-line-argument-hard-error-in-future'; did you mean '-Werror=unused-command-line-argument'? [-Werror,-Wunknown-warning-option]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"pkg-config --exists libxml-2.0"
+| pkg-config --libs libxml-2.0
+=> "-lxml2\n"
+"clang -o conftest -I/Users/snggeng/.rbenv/versions/2.4.0/include/ruby-2.4.0/x86_64-darwin16 -I/Users/snggeng/.rbenv/versions/2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/snggeng/.rbenv/versions/2.4.0/include/ruby-2.4.0 -I. -I/Users/snggeng/.rbenv/versions/2.4.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c  -L. -L/Users/snggeng/.rbenv/versions/2.4.0/lib -L. -L/Users/snggeng/.rbenv/versions/2.4.0/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation -lxml2 -lpthread -lgmp -ldl -lobjc  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+| pkg-config --cflags-only-I libxml-2.0
+=> "-I/usr/include/libxml2\n"
+| pkg-config --cflags-only-other libxml-2.0
+=> "\n"
+| pkg-config --libs-only-l libxml-2.0
+=> "-lxml2\n"
+package configuration for libxml-2.0
+cflags: 
+ldflags: 
+libs: -lxml2
+
+"pkg-config --exists libxslt"
+| pkg-config --libs libxslt
+=> "-lxslt -lxml2 -lz -lpthread -licucore -lm -lxml2\n"
+"clang -o conftest -I/Users/snggeng/.rbenv/versions/2.4.0/include/ruby-2.4.0/x86_64-darwin16 -I/Users/snggeng/.rbenv/versions/2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/snggeng/.rbenv/versions/2.4.0/include/ruby-2.4.0 -I. -I/usr/include/libxml2 -I/Users/snggeng/.rbenv/versions/2.4.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe   conftest.c  -L. -L/Users/snggeng/.rbenv/versions/2.4.0/lib -L. -L/Users/snggeng/.rbenv/versions/2.4.0/lib  -fstack-protector -L/usr/local/lib      -lxml2 -lruby-static -framework CoreFoundation -lxslt -lxml2 -lz -lpthread -licucore -lm -lxml2 -lpthread -lgmp -ldl -lobjc  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+| pkg-config --cflags-only-I libxslt
+=> "-I/usr/include/libxml2\n"
+| pkg-config --cflags-only-other libxslt
+=> "\n"
+| pkg-config --libs-only-l libxslt
+=> "-lxslt -lxml2 -lz -lpthread -licucore -lm -lxml2\n"
+package configuration for libxslt
+cflags: 
+ldflags: 
+libs: -lxslt -lxml2 -lz -lpthread -licucore -lm -lxml2
+
+"pkg-config --exists libexslt"
+| pkg-config --libs libexslt
+=> "-lexslt -lxslt -lxml2 -lz -lpthread -licucore -lm -lxml2\n"
+"clang -o conftest -I/Users/snggeng/.rbenv/versions/2.4.0/include/ruby-2.4.0/x86_64-darwin16 -I/Users/snggeng/.rbenv/versions/2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/snggeng/.rbenv/versions/2.4.0/include/ruby-2.4.0 -I. -I/usr/include/libxml2 -I/usr/include/libxml2 -I/Users/snggeng/.rbenv/versions/2.4.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe    conftest.c  -L. -L/Users/snggeng/.rbenv/versions/2.4.0/lib -L. -L/Users/snggeng/.rbenv/versions/2.4.0/lib  -fstack-protector -L/usr/local/lib       -lxml2 -lxslt -lxml2 -lz -lpthread -licucore -lm -lxml2 -lruby-static -framework CoreFoundation -lexslt -lxslt -lxml2 -lz -lpthread -licucore -lm -lxml2 -lpthread -lgmp -ldl -lobjc  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+| pkg-config --cflags-only-I libexslt
+=> "-I/usr/include/libxml2\n"
+| pkg-config --cflags-only-other libexslt
+=> "\n"
+| pkg-config --libs-only-l libexslt
+=> "-lexslt -lxslt -lxml2 -lz -lpthread -licucore -lm -lxml2\n"
+package configuration for libexslt
+cflags: 
+ldflags: 
+libs: -lexslt -lxslt -lxml2 -lz -lpthread -licucore -lm -lxml2
+
+"clang -E -I/Users/snggeng/.rbenv/versions/2.4.0/include/ruby-2.4.0/x86_64-darwin16 -I/Users/snggeng/.rbenv/versions/2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/snggeng/.rbenv/versions/2.4.0/include/ruby-2.4.0 -I. -I/usr/include/libxml2 -I/usr/include/libxml2 -I/usr/include/libxml2 -I/Users/snggeng/.rbenv/versions/2.4.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe      conftest.c -o conftest.i"
+conftest.c:3:10: fatal error: 'libxml/xmlversion.h' file not found
+#include <libxml/xmlversion.h>
+         ^~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <libxml/xmlversion.h>
+/* end */
+

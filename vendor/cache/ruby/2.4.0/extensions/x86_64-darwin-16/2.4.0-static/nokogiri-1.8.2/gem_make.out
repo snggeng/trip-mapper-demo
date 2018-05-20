@@ -1,0 +1,64 @@
+current directory: /Users/snggeng/Dev/rails/demo_app/vendor/cache/ruby/2.4.0/gems/nokogiri-1.8.2/ext/nokogiri
+/Users/snggeng/.rbenv/versions/2.4.0/bin/ruby -r ./siteconf20180519-91659-18o5zga.rb extconf.rb --use-system-libraries
+checking if the C compiler accepts ... yes
+checking if the C compiler accepts -Wno-error=unused-command-line-argument-hard-error-in-future... no
+Building nokogiri using system libraries.
+ERROR: cannot discover where libxml2 is located on your system. please make sure `pkg-config` is installed.
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=/Users/snggeng/.rbenv/versions/2.4.0/bin/$(RUBY_BASE_NAME)
+	--help
+	--clean
+	--use-system-libraries
+	--with-zlib-dir
+	--without-zlib-dir
+	--with-zlib-include
+	--without-zlib-include=${zlib-dir}/include
+	--with-zlib-lib
+	--without-zlib-lib=${zlib-dir}/lib
+	--with-xml2-dir
+	--without-xml2-dir
+	--with-xml2-include
+	--without-xml2-include=${xml2-dir}/include
+	--with-xml2-lib
+	--without-xml2-lib=${xml2-dir}/lib
+	--with-libxml-2.0-config
+	--without-libxml-2.0-config
+	--with-pkg-config
+	--without-pkg-config
+	--with-xslt-dir
+	--without-xslt-dir
+	--with-xslt-include
+	--without-xslt-include=${xslt-dir}/include
+	--with-xslt-lib
+	--without-xslt-lib=${xslt-dir}/lib
+	--with-libxslt-config
+	--without-libxslt-config
+	--with-exslt-dir
+	--without-exslt-dir
+	--with-exslt-include
+	--without-exslt-include=${exslt-dir}/include
+	--with-exslt-lib
+	--without-exslt-lib=${exslt-dir}/lib
+	--with-libexslt-config
+	--without-libexslt-config
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /Users/snggeng/Dev/rails/demo_app/vendor/cache/ruby/2.4.0/extensions/x86_64-darwin-16/2.4.0-static/nokogiri-1.8.2/mkmf.log
+
+extconf failed, exit code 1
