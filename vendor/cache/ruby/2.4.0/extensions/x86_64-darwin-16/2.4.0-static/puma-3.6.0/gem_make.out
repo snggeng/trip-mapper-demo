@@ -1,0 +1,25 @@
+current directory: /Users/snggeng/Dev/rails/demo_app/vendor/cache/ruby/2.4.0/gems/puma-3.6.0/ext/puma_http11
+/Users/snggeng/.rbenv/versions/2.4.0/bin/ruby -r ./siteconf20170718-50359-121x0z9.rb extconf.rb
+checking for BIO_read() in -lcrypto... yes
+checking for SSL_CTX_new() in -lssl... yes
+checking for openssl/bio.h... no
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /Users/snggeng/Dev/rails/demo_app/vendor/cache/ruby/2.4.0/extensions/x86_64-darwin-16/2.4.0-static/puma-3.6.0/mkmf.log
+
+current directory: /Users/snggeng/Dev/rails/demo_app/vendor/cache/ruby/2.4.0/gems/puma-3.6.0/ext/puma_http11
+make "DESTDIR=" clean
+
+current directory: /Users/snggeng/Dev/rails/demo_app/vendor/cache/ruby/2.4.0/gems/puma-3.6.0/ext/puma_http11
+make "DESTDIR="
+compiling http11_parser.c
+compiling io_buffer.c
+compiling mini_ssl.c
+compiling puma_http11.c
+linking shared-object puma/puma_http11.bundle
+
+current directory: /Users/snggeng/Dev/rails/demo_app/vendor/cache/ruby/2.4.0/gems/puma-3.6.0/ext/puma_http11
+make "DESTDIR=" install
+/usr/local/bin/ginstall -c -m 0755 puma_http11.bundle ./.gem.20170718-50359-12ldf6c/puma
