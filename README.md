@@ -1,4 +1,4 @@
-# README
+# Trip Mapper Demo
 
 This Repository is part of a workshop given at HackDuke 2016 on how to make Web
 Applications in Ruby on Rails by [Geng Sng](https://github.com/snggeng). The
@@ -41,9 +41,9 @@ We will be making our app from scratch, so once you've installed Rails and got a
 github account, let's begin!
 
 We begin by initializing our new rails app. So go ahead type ```rails new
-app_name``` in your directory of choice, to create a new rails app. You will see
+app_name -d postgresql``` in your directory of choice, to create a new rails app. You will see
 that many files are being generated for you, that's Rails doing the
-heavy-lifting for you right there.
+heavy-lifting for you right there. We add ```-d postgresql``` to configure our app to use the PostgreSQL database instead of the default sqlite3.
 
 Once you've done that, we should move into our new rails app by running the
 following command in terminal:
@@ -70,7 +70,7 @@ Congrats! You've made your first Rails application!
 
 List of Commands so far:
 ```
-rails new app_name
+rails new app_name -d postgresql
 cd app_name
 git remote add origin git_url
 git push -u origin master
@@ -88,10 +88,14 @@ and double-click on it.
 Paste the following into your Gemfile:
 
 ```
+# database: postgresql
+gem 'pg'
 # heroku deployment
 gem 'rails_12factor', group: :production
 # user auth
 gem 'devise'
+# jQuery
+gem 'jquery-rails'
 # relational mapping
 gem "rails-erd"
 # geocoding to get lat and long values
@@ -269,6 +273,13 @@ Devise generates a hidden file that stores all these methods. If you want to
 find out all the methods Devise creates, refer to its
 [documentation](https://github.com/plataformatec/devise).
 
+Then we need to add the following in ```assets/javascripts/application.js```:
+
+```
+//= require jquery
+//= require jquery_ujs
+```
+
 Now refresh your rails app and see the changes!
 
 You can now sign in, sign out, and sign up. The pages are all created for you
@@ -331,6 +342,12 @@ Now let's set a div tag in ```index.html.erb``` for our map:
 <div style='height:400px; position: relative; padding-bottom: 75%; height: 0; overflow:hidden'>
   <div id="map" style='width: 100%; height: 100%; position: absolute; top: 0; left: 0;'></div>
 </div>
+```
+
+To catch errors, let's include a div at the top of the page:
+
+```
+<div id="warnings_panel"></div>
 ```
 
 Now we want to paste some in-line javascript into our index page to render the
